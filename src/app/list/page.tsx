@@ -1,4 +1,6 @@
 import {connectDB} from "@/utils/database";
+import Link from "next/link";
+import DetailLink from "@/app/list/DetailLink";
 
 export default async function List() {
 
@@ -10,8 +12,10 @@ export default async function List() {
       {
         result.map((v, i) => {
           return (
-            <div key={i} className="list-item">
-              <h4>{v.title}</h4>
+            <div key={v._id.toHexString()} className="list-item">
+              <Link href={`/detail/${v._id.toHexString()}`}>
+                <h4>{v.title}</h4>
+              </Link>
               <p>{v.content}</p>
             </div>
           );
