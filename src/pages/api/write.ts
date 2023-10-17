@@ -14,12 +14,12 @@ export default async function handler(req: any, res: any) {
 
       if (result.insertedId) {
         // 302 === redirect
-        return res.redirect(302, '/list');
+        res.redirect(302, '/list');
       } else {
-        return res.status(500).json('글 작성중 오류발생');
+        res.status(500).json('글 작성 실패');
       }
     } catch (error) {
-      return res.status(500).json('글 작성중 오류발생');
+      res.status(500).json('글 작성중 오류발생');
     }
   }
 }

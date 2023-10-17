@@ -11,6 +11,6 @@ export default function handler(req: any, res: any) {
 
     let result = year + '-' + month + '-' + date + ' ' + hours + ':' + min + ':' + sec;
 
-    return res.status(200).json(result);
+    res.status(200).json(result);
   }
 }
